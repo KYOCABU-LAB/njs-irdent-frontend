@@ -1,6 +1,7 @@
 "use client";
 
 import { UserCog2Icon, UserIcon } from "lucide-react";
+import Image from "next/image";
 import { Router } from "next/router";
 import { useState } from "react";
 
@@ -313,59 +314,60 @@ const Odontograma = () => {
     setShowModal(true);
     setId_diente(index);
   };
-
   return (
     <div className="justify-center items-center flex *:cursor-pointer">
-      <table id="caras" className="bg-white" cellSpacing="0" cellPadding="0">
-        <tbody>
-          <tr className="h-20 flex-col flex">
-            {superior_derecho.splice(0, 1).map((diente, index) => (
-              <td key={index} className="flex">
-                {diente.matriz[0].map((cara, idx) => (
-                  <span
-                    key={idx}
-                    className="border border-black flex-1 justify-center items-center flex"
-                    onClick={() => clickCara(idx)}
-                    id={`cara_${cara}`}
-                  >
-                    {cara}
-                  </span>
-                ))}
-              </td>
-            ))}
-            {superior_derecho.splice(0, 1).map((diente, index) => (
-              <td key={index} className="flex">
-                {diente.matriz[1].map((cara, idx) => (
-                  <span
-                    key={idx}
-                    className="border border-black flex-1 justify-center items-center flex"
-                    onClick={() => clickCara(idx)}
-                    id={`cara_${cara}`}
-                  >
-                    {cara}
-                  </span>
-                ))}
-              </td>
-            ))}
+      <div className="flex flex-col justify-center items-center">
+        <Image width={50} height={50} src="/P13.jpg" alt="odontograma" />
+        <table id="caras" className="bg-white" cellSpacing="0" cellPadding="0">
+          <tbody>
+            <tr className="h-20 flex-col flex">
+              {superior_derecho.splice(0, 1).map((diente, index) => (
+                <td key={index} className="flex">
+                  {diente.matriz[0].map((cara, idx) => (
+                    <span
+                      key={idx}
+                      className="border border-black flex-1 justify-center items-center flex"
+                      onClick={() => clickCara(idx)}
+                      id={`cara_${cara}`}
+                    >
+                      {cara}
+                    </span>
+                  ))}
+                </td>
+              ))}
+              {superior_derecho.splice(0, 1).map((diente, index) => (
+                <td key={index} className="flex">
+                  {diente.matriz[1].map((cara, idx) => (
+                    <span
+                      key={idx}
+                      className="border border-black flex-1 justify-center items-center flex"
+                      onClick={() => clickCara(idx)}
+                      id={`cara_${cara}`}
+                    >
+                      {cara}
+                    </span>
+                  ))}
+                </td>
+              ))}
 
-            {superior_derecho.splice(0, 1).map((diente, index) => (
-              <td key={index} className="flex">
-                {diente.matriz[2].map((cara, idx) => (
-                  <span
-                    key={idx}
-                    className="border border-black flex-1 justify-center items-center flex"
-                    onClick={() => clickCara(idx)}
-                    id={`cara_${cara}`}
-                  >
-                    {cara}
-                  </span>
-                ))}
-              </td>
-            ))}
-          </tr>
-        </tbody>
-      </table>
-
+              {superior_derecho.splice(0, 1).map((diente, index) => (
+                <td key={index} className="flex">
+                  {diente.matriz[2].map((cara, idx) => (
+                    <span
+                      key={idx}
+                      className="border border-black flex-1 justify-center items-center flex"
+                      onClick={() => clickCara(idx)}
+                      id={`cara_${cara}`}
+                    >
+                      {cara}
+                    </span>
+                  ))}
+                </td>
+              ))}
+            </tr>
+          </tbody>
+        </table>
+      </div>
       {showModal && (
         <Modal id_diente={id_diente} onClose={() => setShowModal(false)} />
       )}
