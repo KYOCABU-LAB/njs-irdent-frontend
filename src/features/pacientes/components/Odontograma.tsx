@@ -4,6 +4,7 @@ import { UserCog2Icon, UserIcon } from "lucide-react";
 import Image from "next/image";
 import { Router } from "next/router";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 const Odontograma = () => {
   const [showModal, setShowModal] = useState(false);
@@ -384,7 +385,12 @@ const Modal = ({
   id_diente: number | null;
 }) => {
   return (
-    <div className="bg-black/50 inset-0 fixed flex justify-center items-center">
+    <motion.div
+      initial={{ opacity: 0, y: "-100vh" }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0 }}
+      className="bg-black/50 inset-0 fixed flex justify-center items-center"
+    >
       <div className="bg-white p-4 rounded">
         <h2 className="text-lg font-bold">Detalles de la cara</h2>
         <button
@@ -398,7 +404,7 @@ const Modal = ({
           <p>ID Diente: {id_diente}</p>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
