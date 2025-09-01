@@ -11,6 +11,7 @@ const Odontograma = () => {
 
   const superior_derecho = [
     {
+      image: "/P13.jpg",
       nombre_dientes: "tercer molar",
       numero_dientes: 18,
       matriz: [
