@@ -1,3 +1,4 @@
+import Odontograma2 from "@/shared/components/Odontograma";
 import Odontograma from "./Odontograma";
 
 const Main = () => {
@@ -5,7 +6,7 @@ const Main = () => {
     <>
       <div>
         <h2>hola</h2>
-        <Odontograma />
+        <Odontograma2 />
       </div>
     </>
   );
