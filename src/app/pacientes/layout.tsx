@@ -1,10 +1,12 @@
-const RootLayout = ({ children }: { children: React.ReactNode }) => {
+import SideBarPacient from "@/features/paciente/common/components/SideBarPacient";
+
+const PacientesLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div>
-      <h2 className="text-2xl bg-amber-600 text-white">hola</h2>
+      <SideBarPacient />
       {children}
     </div>
   );
 };
 
-export default RootLayout;
+export default PacientesLayout;
