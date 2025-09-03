@@ -2,9 +2,9 @@ import SideBarPacient from "@/features/paciente/common/components/SideBarPacient
 
 const PacientesLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div>
+    <div className="flex  ">
       <SideBarPacient />
-      {children}
+      <div className="flex-1 ">{children}</div>
     </div>
   );
 };
