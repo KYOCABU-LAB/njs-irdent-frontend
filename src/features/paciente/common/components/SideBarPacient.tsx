@@ -10,6 +10,12 @@ const SideBarPacient = () => {
         <li className="font-bold hover:bg-gray-300 p-2 rounded">
           <Link href={"/pacientes/registro-clinico"}>Registros clinicos</Link>
         </li>
+        <li className="font-bold hover:bg-gray-300 p-2 rounded">
+          <Link href={"/pacientes/odontograma"}>Odontograma</Link>
+        </li>
+        <li className="font-bold hover:bg-gray-300 p-2 rounded">
+          <Link href={"/pacientes/periodontograma"}>Periodontograma</Link>
+        </li>
       </ul>
     </div>
   );

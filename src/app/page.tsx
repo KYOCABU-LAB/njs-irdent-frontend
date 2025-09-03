@@ -1,10 +1,21 @@
+import { UserIcon } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
     <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
       <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <h2 className="text-2xl">hello</h2>
+        <Link href={"/pacientes"} className="group">
+          <div className="shadow-2xl bg-gray-100 rounded-2xl p-4 hover:bg-gray-200 transition-colors flex flex-col items-center">
+            <div className="flex items-center justify-center mb-4">
+              <UserIcon className="w-[100px] h-[100px]"></UserIcon>
+            </div>
+            <span className="text-2xl font-medium text-center">
+              Ir a Pacientes
+            </span>
+          </div>
+        </Link>
       </main>
       <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
         <a
