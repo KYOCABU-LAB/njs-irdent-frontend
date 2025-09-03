@@ -6,7 +6,7 @@ import TratamientosOdontograma from "./tratamientos";
 
 type tipo = "hallazgo" | "tratamiento";
 
-const PeriododontogramaHallazgoMain = () => {
+const OontogramaHallazgoMain = () => {
   const [tipo, setTipo] = useState<tipo>("hallazgo");
 
   return (
@@ -39,4 +39,4 @@ const PeriododontogramaHallazgoMain = () => {
   );
 };
 
-export default PeriododontogramaHallazgoMain;
+export default OontogramaHallazgoMain;
