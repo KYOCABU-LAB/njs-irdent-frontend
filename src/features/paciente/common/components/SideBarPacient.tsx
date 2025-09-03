@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 const SideBarPacient = () => {
   return (
-    <div className="flex-1 max-w-3xs rounded-2xl m-5 shadow-lg bg-gray-100 p-4 flex flex-col gap-4">
+    <div className="flex-1 max-w-3xs rounded-2xl m-5 shadow-lg bg-white p-4 flex flex-col gap-4">
       <div className="flex flex-col gap-4">
         <Link href={"/pacientes"}>
           <motion.div
