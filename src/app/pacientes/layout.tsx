@@ -4,7 +4,7 @@ const PacientesLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="flex  ">
       <SideBarPacient />
-      <div className="flex-1 ">{children}</div>
+      <div className="flex-1  p-5 ">{children}</div>
     </div>
   );
 };
