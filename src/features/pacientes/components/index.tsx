@@ -1,7 +1,6 @@
 import Odontograma2 from "@/shared/components/Odontograma";
-import Odontograma from "./Odontograma";
 
-const Main = () => {
+const Pacientes = () => {
   return (
     <>
       <div>
@@ -12,4 +11,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default Pacientes;

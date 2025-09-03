@@ -1,4 +1,4 @@
-import axios, { AxiosInstance, AxiosError } from "axios";
+import axios, { AxiosInstance, AxiosError, AxiosRequestConfig } from "axios";
 
 export const API_URL =
   process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
@@ -31,12 +31,16 @@ export class HttpClient {
     return HttpClient.api;
   }
 
-  static async get<T>(url: string, config?: any): Promise<T> {
+  static async get<T>(url: string, config?: AxiosRequestConfig): Promise<T> {
     const response = await HttpClient.getAxiosInstance().get<T>(url, config);
     return response.data;
   }
 
-  static async post<T>(url: string, data?: unknown, config?: any): Promise<T> {
+  static async post<T>(
+    url: string,
+    data?: unknown,
+    config?: AxiosRequestConfig
+  ): Promise<T> {
     const response = await HttpClient.getAxiosInstance().post<T>(
       url,
       data || {},
@@ -45,7 +49,11 @@ export class HttpClient {
     return response.data;
   }
 
-  static async put<T>(url: string, data: unknown, config?: any): Promise<T> {
+  static async put<T>(
+    url: string,
+    data: unknown,
+    config?: AxiosRequestConfig
+  ): Promise<T> {
     const response = await HttpClient.getAxiosInstance().put<T>(
       url,
       data,
@@ -54,12 +62,16 @@ export class HttpClient {
     return response.data;
   }
 
-  static async delete<T>(url: string, config?: any): Promise<T> {
+  static async delete<T>(url: string, config?: AxiosRequestConfig): Promise<T> {
     const response = await HttpClient.getAxiosInstance().delete<T>(url, config);
     return response.data;
   }
 
-  static async patch<T>(url: string, data: unknown, config?: any): Promise<T> {
+  static async patch<T>(
+    url: string,
+    data: unknown,
+    config?: AxiosRequestConfig
+  ): Promise<T> {
     const response = await HttpClient.getAxiosInstance().patch<T>(
       url,
       data,

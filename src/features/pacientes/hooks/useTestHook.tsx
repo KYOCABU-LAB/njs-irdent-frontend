@@ -2,12 +2,12 @@ import { useState } from "react";
 import { getTest } from "../services/test.service";
 
 const useOdontograma = () => {
-  const [test, settest] = useState<string>("");
+  const [test, setest] = useState<string>("");
 
-  const getListtest = async () => {
+  const getListest = async () => {
     try {
       const user = await getTest();
-      settest(user);
+      setest(user);
     } catch (error) {
       console.error("Error fetching tests:", error);
     }
@@ -16,7 +16,7 @@ const useOdontograma = () => {
   const handClick = () => {};
 
   return {
-    getListtest,
+    getListest,
     handClick,
     test,
   };
