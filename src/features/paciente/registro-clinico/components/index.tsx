@@ -1,5 +1,5 @@
-const RegistroClinicoPage = () => {
+const RegistroClinico = () => {
   return <div>RegistroClinicoPage</div>;
 };
 
-export default RegistroClinicoPage;
+export default RegistroClinico;
