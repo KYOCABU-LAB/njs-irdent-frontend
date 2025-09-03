@@ -1,3 +1,4 @@
+import { BoxesIcon, EditIcon, FileUser } from "lucide-react";
 import Link from "next/link";
 
 const SideBarPacient = () => {
@@ -8,28 +9,40 @@ const SideBarPacient = () => {
           className="font-bold hover:bg-gray-300 p-2 rounded"
           href={"/pacientes"}
         >
-          <div>Datos generales</div>
+          <div className="flex gap-2">
+            <div>Datos generales</div>
+            <BoxesIcon className="w-5 h-5" />
+          </div>
         </Link>
 
         <Link
           className="font-bold hover:bg-gray-300 p-2 rounded"
           href={"/pacientes/registro-clinico"}
         >
-          <div>Registros clinicos</div>
+          <div className="flex gap-2">
+            <div>Registros clinicos</div>
+            <EditIcon className="w-5 h-5" />
+          </div>
         </Link>
 
         <Link
           className="font-bold hover:bg-gray-300 p-2 rounded"
           href={"/pacientes/odontograma"}
         >
-          <div>Odontograma</div>
+          <div className="flex gap-2">
+            <div>Odontograma</div>
+            <FileUser className="w-5 h-5" />
+          </div>
         </Link>
 
         <Link
           className="font-bold hover:bg-gray-300 p-2 rounded"
           href={"/pacientes/periodontograma"}
         >
-          <div>Periodontograma</div>
+          <div className="flex gap-2">
+            <div>Periodontograma</div>
+            <FileUser className="w-5 h-5" />
+          </div>
         </Link>
       </div>
     </div>
