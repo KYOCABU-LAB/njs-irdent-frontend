@@ -1,4 +1,4 @@
-import OontogramaHallazgoMain from "@/features/paciente/odontograma-hallazgo/components";
+import OontogramaHallazgoMain from "@/features/paciente/odontograma/components";
 
 const OdontogramaPage = () => {
   return <OontogramaHallazgoMain />;
