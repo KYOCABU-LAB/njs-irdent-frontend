@@ -3,6 +3,7 @@ import { BrainIcon, FileIcon } from "lucide-react";
 import { useState } from "react";
 import HallazgosOdontograma from "./hallazgos";
 import TratamientosOdontograma from "./tratamientos";
+import { motion } from "framer-motion";
 
 type tipo = "hallazgo" | "tratamiento";
 
@@ -12,21 +13,25 @@ const OontogramaHallazgoMain = () => {
   return (
     <div className="flex flex-col gap-2 w-full h-full ">
       <div className="flex gap-2">
-        <button
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
           className="bg-gray-200 rounded-full p-3 hover:bg-gray-300 transition-colors shadow-lg flex gap-2 items-center"
           onClick={() => setTipo("hallazgo")}
         >
           Hallazgos
           <FileIcon className="w-5 h-5" />
-        </button>
+        </motion.button>
 
-        <button
+        <motion.button
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.9 }}
           className="bg-gray-200 rounded-full p-3 hover:bg-gray-300 transition-colors shadow-lg flex gap-2 items-center"
           onClick={() => setTipo("tratamiento")}
         >
           Tratamientos
           <BrainIcon className="w-5 h-5" />
-        </button>
+        </motion.button>
       </div>
       <div>
         {tipo === "hallazgo" ? (
