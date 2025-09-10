@@ -10,6 +10,11 @@ import {
   Stethoscope,
   Heart,
   Shield,
+  Clipboard,
+  Smile,
+  Activity,
+  FileText,
+  CircleDollarSign,
 } from "lucide-react";
 import Link from "next/link";
 
@@ -20,8 +25,9 @@ const features = [
       "Administra el historial médico y tratamientos de tus pacientes de forma eficiente",
     icon: Users,
     href: "/pacientes",
-    color: "from-blue-500 to-blue-600",
-    delay: 0.1,
+    color: "text-black",
+    bgColor: "bg-white",
+    borderColor: "border-gray-200",
   },
   {
     title: "Nuevo Paciente",
@@ -29,26 +35,45 @@ const features = [
       "Registra nuevos pacientes con información completa y organizada",
     icon: UserPlus,
     href: "/pacientes/crear",
-    color: "from-emerald-500 to-emerald-600",
-    delay: 0.2,
+    color: "text-orange-600",
+    bgColor: "bg-white",
+    borderColor: "border-gray-200",
   },
   {
-    title: "Citas y Agenda",
-    description:
-      "Programa y gestiona las citas médicas con recordatorios automáticos",
-    icon: Calendar,
-    href: "/citas",
-    color: "from-purple-500 to-purple-600",
-    delay: 0.3,
+    title: "Registro Clínico",
+    description: "Documenta consultas y tratamientos con precisión médica",
+    icon: Clipboard,
+    href: "/registro-clinico",
+    color: "text-black",
+    bgColor: "bg-white",
+    borderColor: "border-gray-200",
   },
   {
-    title: "Reportes y Análisis",
-    description:
-      "Visualiza estadísticas y reportes detallados de tu consultorio",
-    icon: BarChart3,
-    href: "/reportes",
-    color: "from-orange-500 to-orange-600",
-    delay: 0.4,
+    title: "Odontograma",
+    description: "Visualiza y registra el estado dental de tus pacientes",
+    icon: Smile,
+    href: "/odontograma",
+    color: "text-black",
+    bgColor: "bg-white",
+    borderColor: "border-gray-200",
+  },
+  {
+    title: "Plan de Tratamiento",
+    description: "Crea planes de tratamiento personalizados y seguimiento",
+    icon: FileText,
+    href: "/plan-tratamiento",
+    color: "text-black",
+    bgColor: "bg-white",
+    borderColor: "border-gray-200",
+  },
+  {
+    title: "Presupuestos",
+    description: "Genera presupuestos detallados para tratamientos",
+    icon: CircleDollarSign,
+    href: "/presupuestos",
+    color: "text-black",
+    bgColor: "bg-white",
+    borderColor: "border-gray-200",
   },
 ];
 
@@ -61,7 +86,7 @@ const stats = [
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-white">
       <motion.section
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -74,30 +99,28 @@ export default function Home() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2, duration: 0.5 }}
-              className="inline-flex items-center justify-center w-16 h-16 bg-primary rounded-2xl mb-6"
+              className="inline-flex items-center justify-center w-16 h-16 bg-black rounded-2xl mb-6"
             >
-              <Stethoscope className="h-8 w-8 text-primary-foreground" />
+              <Stethoscope className="h-8 w-8 text-white" />
             </motion.div>
 
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.5 }}
-              className="text-5xl font-bold text-foreground mb-6 tracking-tight"
+              className="text-5xl font-bold text-black mb-6 tracking-tight"
             >
-              Bienvenido a{" "}
-              <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent">
-                IrDent
-              </span>
+              Gestión dental{" "}
+              <span className="text-orange-600">personalizada</span>
             </motion.h1>
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.5 }}
-              className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed"
+              className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed"
             >
-              Sistema de gestión dental moderno y eficiente.
+              Sistema de gestión dental moderno.
             </motion.p>
           </div>
 
@@ -113,56 +136,58 @@ export default function Home() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.6 + index * 0.1, duration: 0.4 }}
-                className="bg-white rounded-2xl p-6 border border-border/50 hover:shadow-lg transition-all duration-300"
+                className="bg-white rounded-2xl p-6 border border-gray-200 hover:shadow-lg transition-all duration-300"
               >
                 <div className="flex items-center justify-between mb-3">
-                  <stat.icon className="h-6 w-6 text-muted-foreground" />
-                  <div className="text-2xl font-bold text-foreground">
+                  <stat.icon className="h-6 w-6 text-gray-600" />
+                  <div className="text-2xl font-bold text-black">
                     {stat.value}
                   </div>
                 </div>
-                <p className="text-sm text-muted-foreground font-medium">
+                <p className="text-sm text-gray-600 font-medium">
                   {stat.label}
                 </p>
               </motion.div>
             ))}
           </motion.div>
-
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.7, duration: 0.6 }}
-            className="grid md:grid-cols-2 lg:grid-cols-4 gap-6"
+            className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
           >
-            {features.map((feature) => (
+            {features.map((feature, index) => (
               <motion.div
                 key={feature.title}
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: feature.delay, duration: 0.5 }}
+                transition={{ delay: 0.1 * index, duration: 0.5 }}
                 whileHover={{ y: -5 }}
                 className="group"
               >
                 <Link href={feature.href} className="block">
-                  <div className="bg-white rounded-2xl p-8 border border-border/50 hover:shadow-xl transition-all duration-300 h-full">
-                    <div
-                      className={`inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r ${feature.color} rounded-xl mb-6 group-hover:scale-110 transition-transform duration-300`}
-                    >
-                      <feature.icon className="h-6 w-6 text-white" />
+                  <div
+                    className={`${feature.bgColor} rounded-2xl p-8 border ${feature.borderColor} hover:shadow-xl transition-all duration-300 h-full`}
+                  >
+                    <div className="flex items-center justify-between mb-6">
+                      <div className="flex items-center space-x-3">
+                        <div className="w-10 h-10 bg-gray-100 rounded-xl flex items-center justify-center">
+                          <feature.icon className="h-5 w-5 text-gray-600" />
+                        </div>
+                        <div>
+                          <h3
+                            className={`text-lg font-semibold ${feature.color} group-hover:text-orange-600 transition-colors`}
+                          >
+                            {feature.title}
+                          </h3>
+                        </div>
+                      </div>
+                      <ArrowRight className="h-5 w-5 text-gray-400 group-hover:text-orange-600 transition-colors" />
                     </div>
 
-                    <h3 className="text-lg font-semibold text-foreground mb-3 group-hover:text-primary transition-colors">
-                      {feature.title}
-                    </h3>
-
-                    <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+                    <p className="text-gray-600 text-sm leading-relaxed">
                       {feature.description}
                     </p>
-
-                    <div className="flex items-center text-primary font-medium text-sm group-hover:translate-x-1 transition-transform duration-300">
-                      <span>Acceder</span>
-                      <ArrowRight className="h-4 w-4 ml-2" />
-                    </div>
                   </div>
                 </Link>
               </motion.div>
@@ -175,12 +200,12 @@ export default function Home() {
             transition={{ delay: 1, duration: 0.6 }}
             className="text-center mt-16"
           >
-            <div className="bg-gradient-to-r from-primary/5 to-primary/10 rounded-3xl p-8 border border-primary/20">
-              <Shield className="h-12 w-12 text-primary mx-auto mb-4" />
-              <h3 className="text-2xl font-semibold text-foreground mb-3">
+            <div className="bg-gray-50 rounded-3xl p-8 border border-gray-200">
+              <Shield className="h-12 w-12 text-black mx-auto mb-4" />
+              <h3 className="text-2xl font-semibold text-black mb-3">
                 Seguridad y Privacidad Garantizadas
               </h3>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
+              <p className="text-gray-600 max-w-2xl mx-auto">
                 Tu información y la de tus pacientes están protegidas con los
                 más altos estándares de seguridad y cumplimiento de normativas
                 médicas.

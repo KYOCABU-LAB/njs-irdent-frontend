@@ -72,14 +72,12 @@ export function TabsPacientes({ pacienteId }: { pacienteId: string }) {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     className={`relative flex items-center space-x-2 py-4 px-1 text-sm font-medium transition-all duration-200 ${
-                      isActive
-                        ? "text-black"
-                        : "text-gray-500 hover:text-gray-900"
+                      isActive ? "text-black" : "text-gray-600 hover:text-black"
                     }`}
                   >
                     <tab.icon
                       className={`w-4 h-4 transition-colors ${
-                        isActive ? "text-black" : "text-gray-500"
+                        isActive ? "text-black" : "text-gray-600"
                       }`}
                     />
                     <span className="whitespace-nowrap">{tab.name}</span>

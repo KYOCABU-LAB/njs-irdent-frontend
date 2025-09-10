@@ -27,24 +27,22 @@ const SideBar = () => {
       initial={{ x: -280 }}
       animate={{ x: 0 }}
       transition={{ duration: 0.3, ease: "easeOut" }}
-      className="h-screen w-72 flex flex-col bg-white border-r border-border/50 backdrop-blur-xl"
+      className="h-screen w-72 flex flex-col bg-white border-r border-gray-200"
     >
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.1, duration: 0.4 }}
-        className="flex items-center space-x-3 p-8 border-b border-border/30"
+        className="flex items-center space-x-3 p-8 border-b border-gray-200"
       >
-        <div className="flex items-center justify-center w-10 h-10 bg-primary rounded-xl">
-          <Stethoscope className="h-6 w-6 text-primary-foreground" />
+        <div className="flex items-center justify-center w-10 h-10 bg-black rounded-xl">
+          <Stethoscope className="h-6 w-6 text-white" />
         </div>
         <div>
-          <h1 className="text-xl font-semibold text-foreground tracking-tight">
+          <h1 className="text-xl font-semibold text-black tracking-tight">
             IrDent
           </h1>
-          <p className="text-xs text-muted-foreground font-medium">
-            Sistema Dental
-          </p>
+          <p className="text-xs text-gray-600 font-medium">Sistema Dental</p>
         </div>
       </motion.div>
 
@@ -72,18 +70,18 @@ const SideBar = () => {
                   <motion.div
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className={`group flex items-center justify-between px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 ${
+                    className={`group flex items-center justify-between px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 ${
                       isActive
-                        ? "bg-primary text-primary-foreground shadow-sm"
-                        : "text-muted-foreground hover:text-foreground hover:bg-muted/50"
+                        ? "bg-black text-white"
+                        : "text-gray-600 hover:text-black hover:bg-gray-50"
                     }`}
                   >
                     <div className="flex items-center space-x-3">
                       <item.icon
                         className={`h-5 w-5 transition-colors ${
                           isActive
-                            ? "text-primary-foreground"
-                            : "text-muted-foreground group-hover:text-foreground"
+                            ? "text-white"
+                            : "text-gray-600 group-hover:text-black"
                         }`}
                       />
                       <span className="font-medium">{item.name}</span>
@@ -96,7 +94,7 @@ const SideBar = () => {
                           exit={{ opacity: 0, scale: 0.8 }}
                           transition={{ duration: 0.2 }}
                         >
-                          <ChevronRight className="h-4 w-4 text-primary-foreground" />
+                          <ChevronRight className="h-4 w-4 text-white" />
                         </motion.div>
                       )}
                     </AnimatePresence>
@@ -112,31 +110,29 @@ const SideBar = () => {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3, duration: 0.4 }}
-        className="p-6 border-t border-border/30"
+        className="p-6 border-t border-gray-200"
       >
-        <div className="flex items-center space-x-3 p-3 rounded-xl hover:bg-muted/50 transition-colors cursor-pointer group">
-          <div className="flex items-center justify-center w-10 h-10 bg-gradient-to-br from-primary to-primary/80 rounded-xl font-semibold text-primary-foreground text-sm">
+        <div className="flex items-center space-x-3 p-3 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer group">
+          <div className="flex items-center justify-center w-10 h-10 bg-black rounded-xl font-semibold text-white text-sm">
             RR
           </div>
           <div className="flex-1 min-w-0">
-            <p className="text-sm font-semibold text-foreground truncate">
-              Russel
-            </p>
-            <p className="text-xs text-muted-foreground">Administrador</p>
+            <p className="text-sm font-semibold text-black truncate">Russel</p>
+            <p className="text-xs text-gray-600">Administrador</p>
           </div>
           <motion.div
             whileHover={{ rotate: 90 }}
             transition={{ duration: 0.2 }}
             className="opacity-0 group-hover:opacity-100 transition-opacity"
           >
-            <Settings className="h-4 w-4 text-muted-foreground" />
+            <Settings className="h-4 w-4 text-gray-600" />
           </motion.div>
         </div>
 
         <motion.button
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
-          className="w-full mt-3 flex items-center space-x-3 px-3 py-2 rounded-xl text-sm font-medium text-muted-foreground hover:text-destructive hover:bg-destructive/5 transition-colors"
+          className="w-full mt-3 flex items-center space-x-3 px-3 py-2 rounded-lg text-sm font-medium text-gray-600 hover:text-red-600 hover:bg-red-50 transition-colors"
         >
           <LogOut className="h-4 w-4" />
           <span>Cerrar Sesión</span>

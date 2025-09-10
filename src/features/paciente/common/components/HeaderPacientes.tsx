@@ -10,14 +10,14 @@ export function HeaderPacientes() {
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
-      className="bg-white/80 backdrop-blur-xl w-full py-6 px-8 flex justify-between items-center border-b border-gray-200 sticky top-0 z-50"
+      className="bg-white w-full py-6 px-8 flex justify-between items-center border-b border-gray-200 sticky top-0 z-50"
     >
       <div className="flex-1">
         <Link href="/pacientes">
           <motion.button
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="flex items-center space-x-2 text-sm font-medium text-gray-500 hover:text-gray-900 transition-colors px-3 py-2 rounded-xl hover:bg-gray-100"
+            className="flex items-center space-x-2 text-sm font-medium text-gray-600 hover:text-black transition-colors px-3 py-2 rounded-lg hover:bg-gray-100"
           >
             <ChevronLeft className="h-4 w-4" />
             <span>Volver a Pacientes</span>
@@ -33,7 +33,7 @@ export function HeaderPacientes() {
           className="flex items-center justify-center space-x-3"
         >
           <div className="w-2 h-2 bg-black rounded-full"></div>
-          <h1 className="text-lg font-semibold text-gray-900">
+          <h1 className="text-lg font-semibold text-black">
             Gestión de Paciente
           </h1>
         </motion.div>
@@ -58,7 +58,7 @@ export function HeaderPacientes() {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="p-2 text-gray-500 hover:text-gray-900 hover:bg-gray-100 rounded-xl transition-all duration-200"
+            className="p-2 text-gray-600 hover:text-black hover:bg-gray-100 rounded-lg transition-all duration-200"
           >
             <Settings className="h-5 w-5" />
           </motion.button>
@@ -66,7 +66,7 @@ export function HeaderPacientes() {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="p-2 text-gray-500 hover:text-gray-900 hover:bg-gray-100 rounded-xl transition-all duration-200"
+            className="p-2 text-gray-600 hover:text-black hover:bg-gray-100 rounded-lg transition-all duration-200"
           >
             <MoreHorizontal className="h-5 w-5" />
           </motion.button>
@@ -74,7 +74,7 @@ export function HeaderPacientes() {
           <motion.div
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="flex items-center justify-center h-10 w-10 bg-gradient-to-br from-black to-gray-800 rounded-xl font-semibold text-white text-sm cursor-pointer"
+            className="flex items-center justify-center h-10 w-10 bg-black rounded-xl font-semibold text-white text-sm cursor-pointer"
           >
             RR
           </motion.div>
