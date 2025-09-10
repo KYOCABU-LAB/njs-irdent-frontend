@@ -1,4 +1,4 @@
-import SideBarPacient from "@/features/paciente/common/components/SideBarPacient";
+import SideBarPacient from "@/shared/components/sidebar/SideBarPacient";
 
 const PacientesLayout = ({ children }: { children: React.ReactNode }) => {
   return (

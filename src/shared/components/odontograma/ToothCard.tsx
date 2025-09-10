@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Diente, getNormalizedMatrix } from "../types";
+import { Diente, getNormalizedMatrix } from "../../types";
 
 type ToothCardProps = {
   diente: Diente;

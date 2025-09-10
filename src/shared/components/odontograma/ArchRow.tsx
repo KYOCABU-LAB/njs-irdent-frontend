@@ -1,5 +1,6 @@
+import { Diente } from "../../types";
 import ToothCard from "./ToothCard";
-import { Diente } from "../types";
+
 
 type ArchRowProps = {
   rightItems: Diente[];

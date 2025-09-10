@@ -1,7 +1,7 @@
 import { useMemo, useState, useEffect } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Diente, getNormalizedMatrix } from "../types";
+import { Diente, getNormalizedMatrix } from "../../types";
 
 type ToothDialogProps = {
   open: boolean;
