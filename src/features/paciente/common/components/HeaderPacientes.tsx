@@ -1,10 +1,19 @@
 "use client";
 
+import { useNavContext } from "@/shared/context/useNavContext";
 import { motion } from "framer-motion";
-import { Bell, ChevronLeft, Settings, MoreHorizontal } from "lucide-react";
+import {
+  Bell,
+  ChevronLeft,
+  Settings,
+  MoreHorizontal,
+  Menu,
+} from "lucide-react";
 import Link from "next/link";
 
 export function HeaderPacientes() {
+  const { toggleNav } = useNavContext();
+
   return (
     <motion.header
       initial={{ opacity: 0, y: -20 }}
@@ -69,6 +78,15 @@ export function HeaderPacientes() {
             className="p-2 text-gray-600 hover:text-black hover:bg-gray-100 rounded-lg transition-all duration-200"
           >
             <MoreHorizontal className="h-5 w-5" />
+          </motion.button>
+
+          <motion.button
+            onClick={toggleNav}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className=" md:hidden flex items-center p-2 text-gray-600 hover:text-black hover:bg-gray-100 rounded-lg transition-all duration-200"
+          >
+            <Menu className="h-5 w-5" />
           </motion.button>
 
           <motion.div
