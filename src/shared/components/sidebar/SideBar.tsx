@@ -22,6 +22,7 @@ const SideBar = () => {
 
       <nav className="flex-1 px-4">
         <ul className="space-y-2">
+          {/* Main Navigation */}
           {navItems.map((item) => {
             const isActive =
               item.href === "/"
