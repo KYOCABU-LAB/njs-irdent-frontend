@@ -9,7 +9,7 @@ const PacientesLayout = ({
   params: { id: string };
 }) => {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       <HeaderPacientes />
       <TabsPacientes pacienteId={params.id} />
       <main className="p-8">
