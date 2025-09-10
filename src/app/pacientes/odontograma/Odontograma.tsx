@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import ArchRow from "../../../../shared/components/odontograma/ArchRow";
+import ArchRow from "../../../shared/components/odontograma/ArchRow";
 import ToothDialog from "./ToothDialog";
 import { Diente } from "../types";
 
