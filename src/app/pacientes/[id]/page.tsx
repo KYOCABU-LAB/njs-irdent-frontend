@@ -17,8 +17,9 @@ import {
   ArrowRight,
   CheckCircle,
 } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "@/shared/components/ui/Button";
+import { useParams } from "next/navigation";
 
 const DatosGeneralesPage = () => {
   const [isEditing, setIsEditing] = useState(false);
@@ -36,6 +37,8 @@ const DatosGeneralesPage = () => {
     observaciones: "Paciente con buena higiene dental",
   });
 
+  const idUser = useParams().id;
+
   const handleInputChange = (field: string, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
@@ -47,6 +50,10 @@ const DatosGeneralesPage = () => {
   const handleCancel = () => {
     setIsEditing(false);
   };
+
+  useEffect(() => {
+    console.log("ID del usuario:", idUser);
+  }, [idUser]);
 
   return (
     <div className="space-y-8">
