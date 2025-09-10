@@ -1,8 +1,11 @@
-import PeriododontogramaMain from "@/features/paciente/periododontograma/components";
-import RegistroClinico from "@/features/paciente/registro-clinico/components";
+import React from 'react';
 
 const PeriodontogramaPage = () => {
-  return <PeriododontogramaMain />;
+  return (
+    <div>
+      <h1>Periodontograma</h1>
+    </div>
+  );
 };
 
 export default PeriodontogramaPage;

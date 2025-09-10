@@ -1,7 +1,11 @@
-import OontogramaHallazgoMain from "@/features/paciente/odontograma/components";
+import React from 'react';
 
 const OdontogramaPage = () => {
-  return <OontogramaHallazgoMain />;
+  return (
+    <div>
+      <h1>Odontograma</h1>
+    </div>
+  );
 };
 
 export default OdontogramaPage;

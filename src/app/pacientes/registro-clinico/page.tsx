@@ -1,7 +1,11 @@
-import RegistroClinico from "@/features/paciente/registro-clinico/components";
+import React from 'react';
 
 const RegistroClinicoPage = () => {
-  return <RegistroClinico />;
+  return (
+    <div>
+      <h1>Registro Clinico</h1>
+    </div>
+  );
 };
 
 export default RegistroClinicoPage;

@@ -1,12 +1,11 @@
-"use client";
+import React from 'react';
 
-import DatosGeneralesPage from "@/features/paciente/components/datos-generales";
-import { useEffect } from "react";
-
-export default function Page() {
+const PacientesPage = () => {
   return (
-    <>
-      <DatosGeneralesPage />
-    </>
+    <div>
+      <h1>Pacientes</h1>
+    </div>
   );
-}
+};
+
+export default PacientesPage;
