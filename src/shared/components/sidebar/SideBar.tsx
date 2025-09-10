@@ -39,7 +39,7 @@ const SideBar = () => {
           <Stethoscope className="h-6 w-6 text-white" />
         </div>
         <div>
-          <h1 className="text-xl font-semibold text-black tracking-tight">
+          <h1 className="text-xl font-semibold text-primary tracking-tight">
             IrDent
           </h1>
           <p className="text-xs text-gray-600 font-medium">Sistema Dental</p>
