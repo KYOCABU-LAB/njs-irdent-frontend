@@ -1,7 +1,6 @@
 @import "tailwindcss";
 
 @theme {
-  /* Hims-inspired color palette */
   --color-background: #ffffff;
   --color-foreground: #000000;
   --color-muted: #f5f5dc;
