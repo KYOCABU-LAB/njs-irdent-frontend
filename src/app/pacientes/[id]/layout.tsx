@@ -1,0 +1,20 @@
+import { HeaderPacientes } from "@/features/paciente/common/components/HeaderPacientes";
+import { TabsPacientes } from "@/features/paciente/common/components/TabsPacientes";
+
+const PacientesLayout = ({
+  children,
+  params,
+}: {
+  children: React.ReactNode;
+  params: { id: string };
+}) => {
+  return (
+    <div className="min-h-screen bg-gray-50">
+      <HeaderPacientes />
+      <TabsPacientes pacienteId={params.id} />
+      <main className="p-8">{children}</main>
+    </div>
+  );
+};
+
+export default PacientesLayout;

@@ -14,10 +14,10 @@ const SideBar = () => {
   const pathname = usePathname();
 
   return (
-    <aside className="h-screen w-64 flex flex-col bg-slate-50 border-r border-slate-200">
+    <aside className="h-screen w-64 flex flex-col bg-stone-50 border-r border-stone-200">
       <div className="flex items-center space-x-2 p-6">
-        <Stethoscope className="h-7 w-7 text-slate-800" />
-        <span className="text-xl font-bold text-slate-800">Irdent</span>
+        <Stethoscope className="h-7 w-7 text-stone-800" />
+        <span className="text-xl font-bold text-stone-800">Irdent</span>
       </div>
 
       <nav className="flex-1 px-4">
@@ -33,8 +33,8 @@ const SideBar = () => {
                   href={item.href}
                   className={`flex items-center space-x-3 px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 ${
                     isActive
-                      ? "bg-blue-600 text-white shadow-sm"
-                      : "text-slate-600 hover:bg-slate-200"
+                      ? "bg-teal-600 text-white shadow-sm"
+                      : "text-stone-600 hover:bg-stone-200"
                   }`}
                 >
                   <item.icon className="h-5 w-5" />
@@ -46,14 +46,14 @@ const SideBar = () => {
         </ul>
       </nav>
 
-      <div className="p-4 border-t border-slate-200">
-        <div className="flex items-center space-x-3 p-2 rounded-md hover:bg-slate-200 transition-colors cursor-pointer">
-          <div className="flex items-center justify-center h-9 w-9 bg-slate-200 rounded-full font-semibold text-slate-600">
+      <div className="p-4 border-t border-stone-200">
+        <div className="flex items-center space-x-3 p-2 rounded-md hover:bg-stone-200 transition-colors cursor-pointer">
+          <div className="flex items-center justify-center h-9 w-9 bg-stone-200 rounded-full font-semibold text-stone-600">
             RR
           </div>
           <div className="flex flex-col">
-            <span className="text-sm font-semibold text-slate-800">prueba</span>
-            <span className="text-xs text-slate-500">Ver Perfil</span>
+            <span className="text-sm font-semibold text-stone-800">Russel</span>
+            <span className="text-xs text-stone-500">Ver Perfil</span>
           </div>
         </div>
       </div>
