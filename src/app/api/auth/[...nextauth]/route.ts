@@ -94,9 +94,12 @@ const handler = NextAuth({
             return response.data;
           }
           return null;
-        } catch (error) {
+        } catch (error: any) {
           console.error("Error al iniciar sesión:", error);
-          return null;
+          if (axios.isAxiosError(error) && error.response) {
+            throw new Error(JSON.stringify(error.response.data));
+          }
+          throw new Error("Error desconocido al iniciar sesión");
         }
       },
     }),
