@@ -2,6 +2,8 @@
 
 import { signIn } from "next-auth/react";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
+import { parseBackendError } from "@/shared/utils/errorParser";
 
 export default function SignIn() {
   const [email, setEmail] = useState("");
@@ -9,6 +11,7 @@ export default function SignIn() {
   const [emailError, setEmailError] = useState<string | null>(null);
   const [passwordError, setPasswordError] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const router = useRouter();
 
   const validateEmail = (email: string) => {
     if (!email) {
@@ -52,9 +55,9 @@ export default function SignIn() {
     console.log(result);
 
     if (result?.error) {
-      setError(result.error);
+      setError(parseBackendError(result.error));
     } else {
-      window.location.href = "/";
+      router.push("/");
     }
   };
 
