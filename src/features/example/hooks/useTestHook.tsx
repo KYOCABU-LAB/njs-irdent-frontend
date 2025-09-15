@@ -7,7 +7,7 @@ const useOdontograma = () => {
   const getListest = async () => {
     try {
       const user = await getTest();
-      setest(user);
+      setest(user.data);
     } catch (error) {
       console.error("Error fetching tests:", error);
     }

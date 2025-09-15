@@ -13,7 +13,7 @@ const NavContext = createContext<NavContextType | undefined>(undefined);
 export const useNavContext = () => {
   const context = React.useContext(NavContext);
   if (context === undefined) {
-    throw new Error("useNavContext must be used within a NavProvider");
+    throw new Error("Ocurrio un error al acceder al contexto en useNavContext");
   }
   return context;
 };
