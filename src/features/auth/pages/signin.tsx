@@ -1,8 +1,10 @@
+"use client";
+
 import { signIn } from "next-auth/react";
 import { useState } from "react";
 
 export default function SignIn() {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
 
@@ -10,9 +12,11 @@ export default function SignIn() {
     e.preventDefault();
     const result = await signIn("credentials", {
       redirect: false,
-      username,
+      email,
       password,
     });
+
+    console.log(result);
 
     if (result?.error) {
       setError(result.error);
@@ -33,20 +37,20 @@ export default function SignIn() {
         <form className="space-y-6" onSubmit={handleSubmit}>
           <div>
             <label
-              htmlFor="username"
+              htmlFor="email"
               className="block text-sm font-medium leading-6 text-gray-900"
             >
-              Nombre de usuario
+              Correo electrónico
             </label>
             <div className="mt-2">
               <input
-                id="username"
-                name="username"
-                type="text"
-                autoComplete="username"
+                id="email"
+                name="email"
+                type="email"
+                autoComplete="email"
                 required
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
             </div>
