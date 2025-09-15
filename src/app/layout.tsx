@@ -5,6 +5,7 @@ import SideBarDesktop, {
   SideBarMobile,
 } from "@/shared/components/sidebar/SideBar";
 import ContextLayout from "@/shared/context/useNavContext";
+import { SessionProvider } from "next-auth/react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,7 +33,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} h-full antialiased bg-white text-black`}
       >
-        <ContextLayout>{children} </ContextLayout>
+        <SessionProvider>
+          <ContextLayout>{children} </ContextLayout>
+        </SessionProvider>
       </body>
     </html>
   );
