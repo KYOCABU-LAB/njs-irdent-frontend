@@ -2,6 +2,7 @@
 
 import { SessionProvider } from "next-auth/react";
 import ContextLayout from "@/shared/context/useNavContext";
+import { QueryClient, QueryClientProvider } from "react-query";
 import React from "react";
 
 export default function ClientProviders({
@@ -9,9 +10,13 @@ export default function ClientProviders({
 }: {
   children: React.ReactNode;
 }) {
+  const queryClient = new QueryClient();
+
   return (
     <SessionProvider>
-      <ContextLayout>{children}</ContextLayout>
+      <QueryClientProvider client={queryClient}>
+        <ContextLayout>{children}</ContextLayout>
+      </QueryClientProvider>
     </SessionProvider>
   );
 }
