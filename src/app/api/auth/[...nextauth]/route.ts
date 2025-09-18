@@ -12,6 +12,7 @@ declare module "next-auth" {
       id: string;
       email: string;
       name: string;
+      roles?: string[];
     } & DefaultSession["user"];
   }
 
@@ -21,6 +22,7 @@ declare module "next-auth" {
     id?: string;
     email?: string;
     name?: string;
+    roles?: string[];
   }
 }
 
@@ -32,6 +34,7 @@ declare module "next-auth/jwt" {
     id?: string;
     email?: string;
     name?: string;
+    roles?: string[];
     error?: string;
   }
 }
@@ -98,19 +101,24 @@ const handler = NextAuth({
       },
       async authorize(credentials, req) {
         try {
-          console.log(" Intentando autenticar usuario:", credentials?.email);
+          console.log("Intentando autenticar usuario:", credentials?.email);
 
-          const response = await HttpClient.post<User>("/auth/login", {
+          const response = await HttpClient.post<any>("/auth/login", {
             email: credentials?.email,
             password: credentials?.password,
           });
 
           if (response.data) {
-            console.log("Autenticación exitosa para:", credentials?.email);
-            return response.data;
+            return {
+              access_token: response.data.access_token,
+              refresh_token: response.data.refresh_token,
+              id: response.data.user.id.toString(),
+              email: response.data.user.email,
+              name: response.data.user.name,
+              roles: response.data.user.roles,
+            };
           }
 
-          console.warn(" No se recibieron datos del usuario");
           return null;
         } catch (error: any) {
           console.error("Error al iniciar sesión:", error);
@@ -138,6 +146,7 @@ const handler = NextAuth({
         token.id = user.id;
         token.email = user.email;
         token.name = user.name;
+        token.roles = user.roles;
       }
 
       // validacion de token de acceso , si el token de acceso no ha expirado
@@ -158,11 +167,13 @@ const handler = NextAuth({
           session.user.id = token.id as string;
           session.user.email = token.email as string;
           session.user.name = token.name as string;
+          session.user.roles = token.roles as string[];
         } else {
           session.user = {
             id: token.id as string,
             email: token.email as string,
             name: token.name as string,
+            roles: token.roles as string[],
           };
         }
 
