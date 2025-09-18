@@ -16,10 +16,12 @@ import {
   Shield,
   ArrowRight,
   CheckCircle,
+  ChevronLeft,
 } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Button } from "@/shared/components/ui/Button";
 import { useParams } from "next/navigation";
+import Link from "next/link";
 
 const DatosGeneralesPage = () => {
   const [isEditing, setIsEditing] = useState(false);
@@ -57,11 +59,29 @@ const DatosGeneralesPage = () => {
 
   return (
     <div className="space-y-8">
+      {/*  Button */}
+      <motion.div
+        initial={{ opacity: 0, x: -20 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.4 }}
+      >
+        <Link href="/pacientes">
+          <motion.button
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            className="flex items-center space-x-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors px-3 py-2 rounded-lg hover:bg-dental-light"
+          >
+            <ChevronLeft className="h-4 w-4" />
+            <span>Volver a Pacientes</span>
+          </motion.button>
+        </Link>
+      </motion.div>
+
       {/* Header Section */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.5, delay: 0.1 }}
         className="flex items-center justify-between"
       >
         <div>
@@ -102,7 +122,7 @@ const DatosGeneralesPage = () => {
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.1, duration: 0.5 }}
+          transition={{ delay: 0.2, duration: 0.5 }}
           className="bg-gradient-to-br from-primary to-dental-gray rounded-2xl p-8 text-primary-foreground shadow-lg"
         >
           <div className="mb-6">
@@ -183,7 +203,7 @@ const DatosGeneralesPage = () => {
         <motion.div
           initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.2, duration: 0.5 }}
+          transition={{ delay: 0.3, duration: 0.5 }}
           className="bg-gradient-to-br from-dental-blue to-secondary rounded-2xl p-8 text-secondary-foreground shadow-lg"
         >
           <div className="mb-6">
@@ -263,7 +283,7 @@ const DatosGeneralesPage = () => {
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3, duration: 0.5 }}
+        transition={{ delay: 0.4, duration: 0.5 }}
         className="bg-gradient-to-r from-dental-mint to-accent rounded-2xl p-8 text-accent-foreground shadow-lg"
       >
         <div className="flex items-center justify-between mb-6">
@@ -340,7 +360,7 @@ const DatosGeneralesPage = () => {
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.4, duration: 0.5 }}
+        transition={{ delay: 0.5, duration: 0.5 }}
         className="grid grid-cols-1 md:grid-cols-3 gap-6"
       >
         <div className="bg-background rounded-2xl p-6 border border-border hover:shadow-lg hover:shadow-dental-blue/10 transition-all duration-300 backdrop-blur-sm">

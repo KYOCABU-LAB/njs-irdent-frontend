@@ -53,7 +53,7 @@ export function TabsPacientes({ pacienteId }: { pacienteId: string }) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.2, duration: 0.4 }}
-      className="bg-background/95 backdrop-blur-sm border-b border-border sticky top-[85px] z-40"
+      className="bg-background/95 backdrop-blur-sm border-b border-border sticky top-0 z-40"
     >
       <div className="px-8">
         <div className="flex items-center space-x-8 overflow-x-auto">
