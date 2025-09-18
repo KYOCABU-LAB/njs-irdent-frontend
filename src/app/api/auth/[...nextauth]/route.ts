@@ -44,6 +44,8 @@ declare module "next-auth/jwt" {
  */
 async function refreshAccessToken(token: any) {
   try {
+    console.log(" Intentando refrescar token de acceso...");
+
     const response = await axios.post(
       `${process.env.NEXT_PUBLIC_API_URL}/auth/refresh`,
       {
@@ -59,6 +61,8 @@ async function refreshAccessToken(token: any) {
 
     const decoded: any = jwtDecode(refreshedTokens.access_token);
 
+    console.log(" Token refrescado exitosamente");
+
     return {
       ...token,
       accessToken: refreshedTokens.access_token,
@@ -67,7 +71,16 @@ async function refreshAccessToken(token: any) {
       error: undefined,
     };
   } catch (error) {
-    console.error("Error al refrescar el token:", error);
+    console.error(" Error al refrescar el token:", error);
+
+    if (axios.isAxiosError(error)) {
+      console.error("Detalles del error:", {
+        status: error.response?.status,
+        data: error.response?.data,
+        message: error.message,
+      });
+    }
+
     return {
       ...token,
       error: "RefreshAccessTokenError",
@@ -85,14 +98,19 @@ const handler = NextAuth({
       },
       async authorize(credentials, req) {
         try {
+          console.log(" Intentando autenticar usuario:", credentials?.email);
+
           const response = await HttpClient.post<User>("/auth/login", {
             email: credentials?.email,
             password: credentials?.password,
           });
 
           if (response.data) {
+            console.log("Autenticación exitosa para:", credentials?.email);
             return response.data;
           }
+
+          console.warn(" No se recibieron datos del usuario");
           return null;
         } catch (error: any) {
           console.error("Error al iniciar sesión:", error);

@@ -36,10 +36,26 @@ export class HttpClient {
           const session = await getSession();
           if (session?.accessToken) {
             config.headers.Authorization = `Bearer ${session.accessToken}`;
+
+            // Log en desarrollo
+            if (process.env.NODE_ENV === "development") {
+              console.log(
+                `🔐 Request autenticado: ${config.method?.toUpperCase()} ${
+                  config.url
+                }`
+              );
+            }
+          } else if (process.env.NODE_ENV === "development") {
+            console.log(
+              `🔓 Request sin autenticación: ${config.method?.toUpperCase()} ${
+                config.url
+              }`
+            );
           }
           return config;
         },
         (error) => {
+          console.error("❌ Error en interceptor de request:", error);
           return Promise.reject(error);
         }
       );
@@ -47,12 +63,43 @@ export class HttpClient {
        * Interceptador de respuestas
        */
       HttpClient.instanciaApi.interceptors.response.use(
-        (response) => response,
+        (response) => {
+          // Log de respuestas exitosas en desarrollo
+          if (process.env.NODE_ENV === "development") {
+            console.log(
+              `✅ ${response.config.method?.toUpperCase()} ${
+                response.config.url
+              } - ${response.status}`
+            );
+          }
+          return response;
+        },
         async (error: AxiosError) => {
+          // Log detallado de errores
+          if (process.env.NODE_ENV === "development") {
+            console.error(
+              `❌ ${error.config?.method?.toUpperCase()} ${
+                error.config?.url
+              } - ${error.response?.status}`,
+              {
+                status: error.response?.status,
+                data: error.response?.data,
+                message: error.message,
+              }
+            );
+          }
+
           // Si es un error de autenticación
           if (error.response?.status === 401) {
+            console.warn("🔒 Token expirado o inválido, redirigiendo al login");
             signOut({ callbackUrl: "/auth/signin" });
           }
+
+          // Si es rate limiting
+          if (error.response?.status === 429) {
+            console.warn("⚠️ Rate limit excedido, demasiadas peticiones");
+          }
+
           return Promise.reject(error);
         }
       );
