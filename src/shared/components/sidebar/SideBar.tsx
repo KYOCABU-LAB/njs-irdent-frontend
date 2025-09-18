@@ -16,7 +16,7 @@ import {
 import { useNavContext } from "@/shared/context/useNavContext";
 
 const navItems = [
-  { name: "Dashboard", href: "/", icon: LayoutDashboard },
+  { name: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
   { name: "Pacientes", href: "/pacientes", icon: Users },
   { name: "Usuarios", href: "/users", icon: UserCog },
 ];
@@ -57,7 +57,7 @@ const SideBarDesktop = () => {
         >
           {navItems.map((item, index) => {
             const isActive =
-              item.href === "/"
+              item.href === "/dashboard"
                 ? pathname === item.href
                 : pathname.startsWith(item.href);
 
