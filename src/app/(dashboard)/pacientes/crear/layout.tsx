@@ -11,7 +11,7 @@ const CrearPacientesLayout = ({
   params: { id: string };
 }) => {
   return (
-    <div className="min-h-screen bg-[#F8FAFC] ">
+    <div className="min-h-screen bg-background">
       <HeaderCrearPacientes />
       <TabsCrearPacientes />
       <main className="p-8">

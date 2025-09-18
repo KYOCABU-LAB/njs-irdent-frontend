@@ -32,16 +32,18 @@ const SidebarHeader = ({
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.1, duration: 0.4 }}
-      className="flex items-center space-x-3 p-8 border-b border-gray-200 relative"
+      className="flex items-center space-x-3 p-8 border-b border-border relative"
     >
-      <div className="flex items-center justify-center w-10 h-10 bg-black rounded-xl">
-        <Stethoscope className="h-6 w-6 text-white" />
+      <div className="flex items-center justify-center w-10 h-10 bg-primary rounded-xl shadow-lg">
+        <Stethoscope className="h-6 w-6 text-primary-foreground" />
       </div>
       <div>
-        <h1 className="text-xl font-semibold text-primary tracking-tight">
+        <h1 className="text-xl font-semibold text-foreground tracking-tight">
           IrDent
         </h1>
-        <p className="text-xs text-gray-600 font-medium">Sistema Dental</p>
+        <p className="text-xs text-muted-foreground font-medium">
+          Sistema Dental
+        </p>
       </div>
 
       {showCloseButton && (
@@ -49,7 +51,7 @@ const SidebarHeader = ({
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
           onClick={onCloseNav}
-          className="absolute top-6 right-6 flex items-center p-2 text-gray-600 hover:text-black hover:bg-gray-100 rounded-lg transition-all duration-200"
+          className="absolute top-6 right-6 flex items-center p-2 text-muted-foreground hover:text-foreground hover:bg-dental-light rounded-lg transition-all duration-200"
         >
           <X className="h-4 w-4" />
         </motion.button>
