@@ -103,16 +103,16 @@ const SidebarNavigation = ({ isMobile = false }: { isMobile?: boolean }) => {
                   whileTap={{ scale: 0.98 }}
                   className={`group flex items-center justify-between px-4 py-3 rounded-lg text-sm font-medium transition-all duration-200 ${
                     isActive
-                      ? "bg-black text-white"
-                      : "text-gray-600 hover:text-black hover:bg-gray-50"
+                      ? "bg-primary text-primary-foreground shadow-lg"
+                      : "text-muted-foreground hover:text-foreground hover:bg-dental-light"
                   }`}
                 >
                   <div className="flex items-center space-x-3">
                     <item.icon
                       className={`h-5 w-5 transition-colors ${
                         isActive
-                          ? "text-white"
-                          : "text-gray-600 group-hover:text-black"
+                          ? "text-primary-foreground"
+                          : "text-muted-foreground group-hover:text-foreground"
                       }`}
                     />
                     <span className="font-medium">{item.name}</span>
@@ -126,7 +126,7 @@ const SidebarNavigation = ({ isMobile = false }: { isMobile?: boolean }) => {
                         exit={{ opacity: 0, scale: 0.8 }}
                         transition={{ duration: 0.2 }}
                       >
-                        <ChevronRight className="h-4 w-4 text-white" />
+                        <ChevronRight className="h-4 w-4 text-primary-foreground" />
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -147,7 +147,7 @@ const SideBarDesktop = () => {
       initial={{ x: -280 }}
       animate={{ x: 0 }}
       transition={{ duration: 0.3, ease: "easeOut" }}
-      className="h-screen w-72 flex-col bg-white border-r border-gray-200 hidden lg:flex"
+      className="h-screen w-72 flex-col bg-background border-r border-border hidden lg:flex backdrop-blur-sm"
     >
       <SidebarHeader />
       <SidebarNavigation />
@@ -168,7 +168,7 @@ export const SideBarMobile = () => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.2 }}
-          className="lg:hidden inset-0 fixed z-[60] bg-black/20 backdrop-blur-sm"
+          className="lg:hidden inset-0 fixed z-[60] bg-primary/20 backdrop-blur-sm"
           onClick={onCloseNav}
         >
           <motion.aside
@@ -179,7 +179,7 @@ export const SideBarMobile = () => {
               duration: 0.3,
               ease: "easeOut",
             }}
-            className="h-screen w-72 fixed flex-col bg-white border-r border-gray-200 z-[70] flex"
+            className="h-screen w-72 fixed flex-col bg-background border-r border-border z-[70] flex backdrop-blur-sm"
             onClick={(e) => e.stopPropagation()}
           >
             <SidebarHeader showCloseButton />
