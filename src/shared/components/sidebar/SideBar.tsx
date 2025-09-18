@@ -200,7 +200,7 @@ export const SideBarMobile = () => {
             >
               {navItems.map((item, index) => {
                 const isActive =
-                  item.href === "/"
+                  item.href === "/dashboard"
                     ? pathname === item.href
                     : pathname.startsWith(item.href);
 

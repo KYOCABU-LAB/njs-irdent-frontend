@@ -17,7 +17,6 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/shared/components/ui/Button";
-import { HeaderListaPacientes } from "@/features/paciente/common/components/HeaderListaPacientes";
 
 const pacientes = [
   {
@@ -66,8 +65,6 @@ const StatusBadge = ({ status }: { status: "Activo" | "Inactivo" }) => {
 const PacientesPage = () => {
   return (
     <div className="min-h-screen bg-white">
-      <HeaderListaPacientes />
-
       <main className="p-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

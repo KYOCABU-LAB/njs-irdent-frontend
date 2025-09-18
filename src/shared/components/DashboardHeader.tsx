@@ -2,8 +2,20 @@
 
 import { motion } from "framer-motion";
 import { Bell, Search, Settings } from "lucide-react";
+import { useSession } from "next-auth/react";
 
-export function HeaderListaPacientes() {
+export function DashboardHeader() {
+  const { data: session } = useSession();
+
+  const userInitials = session?.user?.email
+    ? session.user.email
+        .split("@")[0]
+        .split(".")
+        .map((n) => n[0])
+        .join("")
+        .toUpperCase()
+    : "";
+
   return (
     <motion.header
       initial={{ opacity: 0, y: -20 }}
@@ -46,7 +58,7 @@ export function HeaderListaPacientes() {
           whileTap={{ scale: 0.95 }}
           className="flex items-center justify-center h-10 w-10 bg-black rounded-xl font-semibold text-white text-sm cursor-pointer"
         >
-          RR
+          {userInitials}
         </motion.div>
       </div>
     </motion.header>
