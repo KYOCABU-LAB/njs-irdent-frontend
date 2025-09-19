@@ -2,7 +2,6 @@ import { withAuth } from "next-auth/middleware";
 
 export default withAuth(
   function middleware(req) {
-    // Middleware adicional si es necesario
     console.log("🔒 Middleware ejecutado para:", req.nextUrl.pathname);
   },
   {
