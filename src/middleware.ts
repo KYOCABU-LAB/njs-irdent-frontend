@@ -1,8 +1,17 @@
 import { withAuth } from "next-auth/middleware";
+import { NextResponse } from "next/server"; // Importar NextResponse
 
 export default withAuth(
-  function middleware(req) {
+  async function middleware(req) {
     console.log("🔒 Middleware ejecutado para:", req.nextUrl.pathname);
+
+    const token = req.nextauth.token;
+
+    if (req.nextUrl.pathname.startsWith("/auth") && token) {
+      return NextResponse.redirect(new URL("/", req.url));
+    }
+
+    return NextResponse.next();
   },
   {
     callbacks: {
