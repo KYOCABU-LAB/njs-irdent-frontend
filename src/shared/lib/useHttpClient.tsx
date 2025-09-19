@@ -54,7 +54,7 @@ export class HttpClient {
           }
           return config;
         },
-        (error) => {
+        (error: AxiosError) => {
           console.error("❌ Error en interceptor de request:", error);
           return Promise.reject(error);
         }
