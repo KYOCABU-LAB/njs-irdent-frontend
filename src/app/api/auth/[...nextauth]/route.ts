@@ -12,6 +12,7 @@ declare module "next-auth" {
       id: string;
       email: string;
       name: string;
+      roles?: string[];
     } & DefaultSession["user"];
   }
 
@@ -21,6 +22,7 @@ declare module "next-auth" {
     id?: string;
     email?: string;
     name?: string;
+    roles?: string[];
   }
 }
 
@@ -32,6 +34,7 @@ declare module "next-auth/jwt" {
     id?: string;
     email?: string;
     name?: string;
+    roles?: string[];
     error?: string;
   }
 }
@@ -44,6 +47,8 @@ declare module "next-auth/jwt" {
  */
 async function refreshAccessToken(token: any) {
   try {
+    console.log(" Intentando refrescar token de acceso...");
+
     const response = await axios.post(
       `${process.env.NEXT_PUBLIC_API_URL}/auth/refresh`,
       {
@@ -59,6 +64,8 @@ async function refreshAccessToken(token: any) {
 
     const decoded: any = jwtDecode(refreshedTokens.access_token);
 
+    console.log(" Token refrescado exitosamente");
+
     return {
       ...token,
       accessToken: refreshedTokens.access_token,
@@ -67,7 +74,16 @@ async function refreshAccessToken(token: any) {
       error: undefined,
     };
   } catch (error) {
-    console.error("Error al refrescar el token:", error);
+    console.error(" Error al refrescar el token:", error);
+
+    if (axios.isAxiosError(error)) {
+      console.error("Detalles del error:", {
+        status: error.response?.status,
+        data: error.response?.data,
+        message: error.message,
+      });
+    }
+
     return {
       ...token,
       error: "RefreshAccessTokenError",
@@ -85,14 +101,24 @@ const handler = NextAuth({
       },
       async authorize(credentials, req) {
         try {
-          const response = await HttpClient.post<User>("/auth/login", {
+          console.log("Intentando autenticar usuario:", credentials?.email);
+
+          const response = await HttpClient.post<any>("/auth/login", {
             email: credentials?.email,
             password: credentials?.password,
           });
 
           if (response.data) {
-            return response.data;
+            return {
+              access_token: response.data.access_token,
+              refresh_token: response.data.refresh_token,
+              id: response.data.user.id.toString(),
+              email: response.data.user.email,
+              name: response.data.user.name,
+              roles: response.data.user.roles,
+            };
           }
+
           return null;
         } catch (error: any) {
           console.error("Error al iniciar sesión:", error);
@@ -120,6 +146,7 @@ const handler = NextAuth({
         token.id = user.id;
         token.email = user.email;
         token.name = user.name;
+        token.roles = user.roles;
       }
 
       // validacion de token de acceso , si el token de acceso no ha expirado
@@ -140,11 +167,13 @@ const handler = NextAuth({
           session.user.id = token.id as string;
           session.user.email = token.email as string;
           session.user.name = token.name as string;
+          session.user.roles = token.roles as string[];
         } else {
           session.user = {
             id: token.id as string,
             email: token.email as string,
             name: token.name as string,
+            roles: token.roles as string[],
           };
         }
 

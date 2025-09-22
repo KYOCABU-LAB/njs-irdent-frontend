@@ -53,7 +53,7 @@ export function TabsPacientes({ pacienteId }: { pacienteId: string }) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.2, duration: 0.4 }}
-      className="bg-white border-b border-gray-200 sticky top-[85px] z-40"
+      className="bg-background/95 backdrop-blur-sm border-b border-border sticky top-0 z-40"
     >
       <div className="px-8">
         <div className="flex items-center space-x-8 overflow-x-auto">
@@ -72,12 +72,14 @@ export function TabsPacientes({ pacienteId }: { pacienteId: string }) {
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     className={`relative flex items-center space-x-2 py-4 px-1 text-sm font-medium transition-all duration-200 ${
-                      isActive ? "text-black" : "text-gray-600 hover:text-black"
+                      isActive
+                        ? "text-foreground"
+                        : "text-muted-foreground hover:text-foreground"
                     }`}
                   >
                     <tab.icon
                       className={`w-4 h-4 transition-colors ${
-                        isActive ? "text-black" : "text-gray-600"
+                        isActive ? "text-dental-blue" : "text-muted-foreground"
                       }`}
                     />
                     <span className="whitespace-nowrap">{tab.name}</span>
@@ -86,7 +88,7 @@ export function TabsPacientes({ pacienteId }: { pacienteId: string }) {
                       {isActive && (
                         <motion.div
                           layoutId="active-tab-indicator"
-                          className="absolute bottom-0 left-0 right-0 h-0.5 bg-black rounded-full"
+                          className="absolute bottom-0 left-0 right-0 h-0.5 bg-dental-blue rounded-full"
                           transition={{
                             type: "spring",
                             stiffness: 380,

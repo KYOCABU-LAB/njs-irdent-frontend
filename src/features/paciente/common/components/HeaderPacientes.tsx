@@ -19,14 +19,14 @@ export function HeaderPacientes() {
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
-      className="bg-white w-full py-6 px-8 flex justify-between items-center border-b border-gray-200 sticky top-0 z-50"
+      className="bg-background/95 backdrop-blur-sm w-full py-6 px-8 flex justify-between items-center border-b border-border sticky top-0 z-50"
     >
       <div className="flex-1">
         <Link href="/pacientes">
           <motion.button
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="flex items-center space-x-2 text-sm font-medium text-gray-600 hover:text-black transition-colors px-3 py-2 rounded-lg hover:bg-gray-100"
+            className="flex items-center space-x-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors px-3 py-2 rounded-lg hover:bg-dental-light"
           >
             <ChevronLeft className="h-4 w-4" />
             <span>Volver a Pacientes</span>
@@ -41,8 +41,8 @@ export function HeaderPacientes() {
           transition={{ delay: 0.1, duration: 0.4 }}
           className="flex items-center justify-center space-x-3"
         >
-          <div className="w-2 h-2 bg-black rounded-full"></div>
-          <h1 className="text-lg font-semibold text-black">
+          <div className="w-2 h-2 bg-dental-blue rounded-full"></div>
+          <h1 className="text-lg font-semibold text-foreground">
             Gestión de Paciente
           </h1>
         </motion.div>
@@ -53,21 +53,21 @@ export function HeaderPacientes() {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="relative p-2 text-gray-500 hover:text-gray-900 hover:bg-gray-100 rounded-xl transition-all duration-200"
+            className="relative p-2 text-muted-foreground hover:text-foreground hover:bg-dental-light rounded-xl transition-all duration-200"
           >
             <Bell className="h-5 w-5" />
             <motion.span
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ delay: 0.5, duration: 0.3 }}
-              className="absolute top-1 right-1 h-2 w-2 bg-black rounded-full"
+              className="absolute top-1 right-1 h-2 w-2 bg-dental-blue rounded-full"
             />
           </motion.button>
 
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="p-2 text-gray-600 hover:text-black hover:bg-gray-100 rounded-lg transition-all duration-200"
+            className="p-2 text-muted-foreground hover:text-foreground hover:bg-dental-light rounded-lg transition-all duration-200"
           >
             <Settings className="h-5 w-5" />
           </motion.button>
@@ -75,7 +75,7 @@ export function HeaderPacientes() {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="p-2 text-gray-600 hover:text-black hover:bg-gray-100 rounded-lg transition-all duration-200"
+            className="p-2 text-muted-foreground hover:text-foreground hover:bg-dental-light rounded-lg transition-all duration-200"
           >
             <MoreHorizontal className="h-5 w-5" />
           </motion.button>
@@ -84,7 +84,7 @@ export function HeaderPacientes() {
             onClick={toggleNav}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className=" md:hidden flex items-center p-2 text-gray-600 hover:text-black hover:bg-gray-100 rounded-lg transition-all duration-200"
+            className=" md:hidden flex items-center p-2 text-muted-foreground hover:text-foreground hover:bg-dental-light rounded-lg transition-all duration-200"
           >
             <Menu className="h-5 w-5" />
           </motion.button>
@@ -92,7 +92,7 @@ export function HeaderPacientes() {
           <motion.div
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="flex items-center justify-center h-10 w-10 bg-black rounded-xl font-semibold text-white text-sm cursor-pointer"
+            className="flex items-center justify-center h-10 w-10 bg-primary rounded-xl font-semibold text-primary-foreground text-sm cursor-pointer shadow-lg"
           >
             RR
           </motion.div>

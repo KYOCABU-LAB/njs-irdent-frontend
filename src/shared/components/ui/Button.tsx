@@ -22,13 +22,16 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     ref
   ) => {
     const baseClasses =
-      "inline-flex items-center justify-center rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-black/20 disabled:pointer-events-none disabled:opacity-50";
+      "inline-flex items-center justify-center rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-dental-blue/20 disabled:pointer-events-none disabled:opacity-50 backdrop-blur-sm";
 
     const variants = {
-      primary: "bg-black text-white hover:bg-gray-800 shadow-sm",
-      secondary: "bg-white text-black border border-gray-300 hover:bg-gray-50",
-      ghost: "hover:bg-gray-100 hover:text-gray-900",
-      destructive: "bg-red-600 text-white hover:bg-red-700",
+      primary:
+        "bg-primary text-primary-foreground hover:bg-dental-blue shadow-lg hover:shadow-dental-blue/20",
+      secondary:
+        "bg-background text-foreground border border-border hover:bg-muted hover:border-dental-blue/20",
+      ghost: "hover:bg-dental-light hover:text-dental-blue",
+      destructive:
+        "bg-destructive text-destructive-foreground hover:bg-destructive/90 shadow-lg",
     };
 
     const sizes = {
