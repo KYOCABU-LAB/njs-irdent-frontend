@@ -16,7 +16,7 @@ import { useNavContext } from "@/shared/context/useNavContext";
 const navItems = [
   { name: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
   { name: "Pacientes", href: "/pacientes", icon: Users },
-  { name: "Usuarios", href: "/users", icon: UserCog },
+  { name: "Administrador", href: "/", icon: UserCog },
 ];
 
 // Componente header
